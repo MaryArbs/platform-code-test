@@ -15,23 +15,16 @@ class Award
         case name #variables that will be used by when keyword
         when "Blue First"
             extend BlueFirst
-           
         when "Blue Compare"
             extend BlueCompare
-           
         when "Blue Distinction Plus"
             extend BlueDistinctionPlus
-           
-           
         when "Blue Star"
             extend BlueStar
-            
         else 
             extend NormalAward
-            
         end 
     end 
-   
 end 
 
 module NormalAward 
@@ -46,9 +39,9 @@ end
 module BlueFirst #increase in quality the older they get
     def update_quality
         @expires_in -= 1
-        return if @quality >= 50
-        @quality += 1
+        @quality += 1 
         @quality += 1 if @expires_in <= 0
+        return @quality = 50 if @quality >= 50
     end 
 end
 
@@ -57,7 +50,7 @@ module BlueDistinctionPlus #quality = 80 and not altered
     end 
 end 
 
-module BlueCompare
+module BlueCompare 
     def update_quality
          @expires_in -= 1
          return if @quality >= 50
