@@ -10,7 +10,6 @@ class Award
         @name = name
         @expires_in = expires_in
         @quality = quality
-    
   
         case name #variables that will be used by when keyword
         when "Blue First"
