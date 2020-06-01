@@ -31,7 +31,7 @@ class Award
             
         end 
     end 
-    
+   
 end 
 
 module NormalAward 
@@ -46,6 +46,7 @@ end
 module BlueFirst #increase in quality the older they get
     def update_quality
         @expires_in -= 1
+        # @quality = 50 if @quality > 50
         return if @quality >= 50
         @quality += 1
         @quality += 1 if @expires_in <= 0
@@ -73,7 +74,6 @@ module BlueStar
         @expires_in -= 1
         return if @quality <= 0
         @quality -= 2
-        
     end 
 end 
 
