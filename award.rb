@@ -10,6 +10,7 @@ class Award
         @name = name
         @expires_in = expires_in
         @quality = quality
+
   
         case name #variables that will be used by when keyword
         when "Blue First"
@@ -29,9 +30,10 @@ end
 module NormalAward 
     def update_quality
         @expires_in -= 1
-        return if @quality == 0
-        @quality -= 1
+        if @quality != 0
+        @quality -= 1 #always take away 1 
         @quality -= 1 if @expires_in <= 0  
+        end
     end      
 end 
 
@@ -65,7 +67,8 @@ module BlueStar
         @expires_in -= 1
         return if @quality <= 0
         @quality -= 2
-        @quality -= 2 if @expires_in < 0
+        if @expires_in < 0 then @quality -= 2
+        end 
     end 
 end 
 
